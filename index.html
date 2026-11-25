@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hi!</title>
+<meta name="description" content="ZackLin's Page ">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap">
+<style>
+:root {
+  --ink: #FFFFFF;
+  --ink-soft: rgba(255, 255, 255, 0.78);
+  --glass: rgba(255, 255, 255, 0.12);
+  --glass-line: rgba(255, 255, 255, 0.24);
+  --scrim: rgba(8, 10, 16, 0.58);
+  --btn-bg: #FFFFFF;
+  --btn-fg: #14181F;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: #12151B;
+  color: var(--ink);
+  font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background-color: #111111;
+  background-image: url("cover.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.bg::before {
+  content: "";
+  position: absolute;
+  inset: -60px;
+  background: url("avatar.png") center / cover;
+  filter: blur(36px) saturate(1.15);
+}
+.bg.has-image::before { display: none; }
+.bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, var(--scrim), rgba(8, 10, 16, 0.72));
+}
+
+main {
+  flex: 1 0 auto;
+  width: 100%;
+  max-width: 460px;
+  margin: 0 auto;
+  padding-block: 48px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  text-align: center;
+}
+.avatar {
+  display: block;
+  width: 144px;
+  height: 144px;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.9);
+  object-fit: cover;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+h1 {
+  margin: 0;
+  font-family: "Space Grotesk", "Noto Sans TC", sans-serif;
+  font-size: 52px;
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-wrap: balance;
+}
+section { width: 100%; text-align: left; }
+h2 {
+  margin: 0 0 10px;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 60px;
+  padding: 8px 8px 8px 18px;
+  background: var(--glass);
+  border: 1px solid var(--glass-line);
+  border-radius: 14px;
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+.row .label { flex: 0 0 76px; font-size: 14px; color: var(--ink-soft); }
+.row .value { flex: 1 1 auto; min-width: 0; overflow-wrap: anywhere; user-select: all; font-size: 17px; }
+.act {
+  flex: 0 0 auto;
+  min-height: 44px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+.act:hover { opacity: 0.88; }
+.act:focus-visible { outline: 2px solid #FFFFFF; outline-offset: 2px; }
+footer {
+  flex: 0 0 auto;
+  padding: 16px 0 20px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+@media (max-width: 480px) {
+  h1 { font-size: 40px; }
+  .avatar { width: 120px; height: 120px; }
+  .row { flex-wrap: wrap; padding: 12px 10px 12px 16px; }
+  .row .label { flex-basis: 100%; }
+  .row .value { flex-basis: 0; }
+}
+</style>
+</head>
+<body>
+<div class="bg" id="bg"></div>
+
+<main>
+  <img class="avatar" src="avatar.png" alt="ZackLin 的大頭照" width="144" height="144">
+
+  <h1>ZackLin</h1>
+
+  <section>
+    <ul>
+      <li class="row">
+        <span class="label">Discord</span>
+        <span class="value">zacklin</span>
+        <button class="act" type="button" data-copy="zacklin">Copy</button>
+      </li>
+	  <li class="row">
+        <span class="label">Email</span>
+        <span class="value">zacklin@zacklin.net</span>
+        <button class="act" type="button" data-copy="zacklin@zacklin.net">Copy</button>
+      </li>
+    </ul>
+  </section>
+</main>
+
+<footer>&copy; 2026 ZackLin</footer>
+
+<script>
+(function () {
+  var img = new Image();
+  img.onload = function () { document.getElementById("bg").classList.add("has-image"); };
+  img.src = "cover.jpg";
+
+  function fallbackCopy(text) {
+    var t = document.createElement("textarea");
+    t.value = text;
+    t.style.position = "fixed";
+    t.style.opacity = "0";
+    document.body.appendChild(t);
+    t.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(t);
+  }
+  document.querySelectorAll("[data-copy]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var text = btn.getAttribute("data-copy");
+      var done = function () {
+        var old = btn.textContent;
+        btn.textContent = "已複製";
+        setTimeout(function () { btn.textContent = old; }, 1500);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, function () { fallbackCopy(text); done(); });
+      } else {
+        fallbackCopy(text);
+        done();
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
