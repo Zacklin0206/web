@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>ZackLin's Page</title>
+<link rel="icon" href="data:,">
 <meta name="description" content="ZackLin's Page">
 <meta name="theme-color" content="#0B1020">
 
@@ -175,6 +176,7 @@ h1 {
   display: flex;
   align-items: center;
   gap: 14px;
+  min-height: 68px;
   padding: 10px 10px 10px 14px;
   text-align: left;
   background: var(--glass);
@@ -241,6 +243,15 @@ footer {
   font-size: 12px;
   color: var(--ink-soft);
 }
+.copyright {
+  border: 0;
+  background: none;
+  padding: 4px 6px;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.copyright:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
 .retro {
   border: 0;
   background: none;
@@ -352,7 +363,7 @@ footer {
 </main>
 
 <footer>
-  &copy; 2026 ZackLin
+  <button class="copyright" type="button" id="copyright">&copy; 2026 ZackLin</button>
 </footer>
 
 <script>
@@ -372,6 +383,14 @@ footer {
       sky.appendChild(m);
     }
   }
+
+  document.getElementById("avatar").addEventListener("click", function () {
+    window.open(atob("aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1kUXc0dzlXZ1hjUSZwcD15Z1VKY21samEzSnZiR3dn"), "_blank", "noopener,noreferrer");
+  });
+
+  document.getElementById("copyright").addEventListener("click", function () {
+    window.open(atob("aHR0cHM6Ly95b3V0dS5iZS9IRmxnTm9Vc3I0az9zaT16SDhoaEhULWtXbG5RN3BZ"), "_blank", "noopener,noreferrer");
+  });
 
   var toast = document.getElementById("toast");
   var toastTimer;
